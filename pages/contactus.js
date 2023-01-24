@@ -48,14 +48,14 @@ export default function contactus() {
           >
             <div className="flex flex-1 items-center">
               <div className="flex w-full items-center justify-between lg:w-auto">
-                <a href="#">
+                <div >
                   <span className="sr-only">Curiosityxploring</span>
                   <img
                     className="h-8 w-auto sm:h-10"
                     src="/images/curiositylogo.png"
                     alt=""
                   />
-                </a>
+                </div>
                 <div className="-mr-2 flex items-center lg:hidden">
                   <Popover.Button className="focus-ring-inset inline-flex items-center justify-center rounded-md bg-warm-gray-50 p-2 text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-500">
                     <span className="sr-only">Open main menu</span>
@@ -65,23 +65,23 @@ export default function contactus() {
               </div>
               <div className="hidden space-x-10 lg:ml-10 lg:flex">
                 {navigation.map((item) => (
-                  <a
+                  <div
                     key={item.name}
                     href={item.href}
                     className="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900"
                   >
                     {item.name}
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>
             <div className="hidden lg:flex lg:items-center lg:space-x-6">
-              <a
-                href="/login"
+              <div
+                
                 className="rounded-md border border-transparent bg-warm-gray-100 py-2 px-6 text-base font-medium text-warm-gray-900 hover:bg-warm-gray-200"
               >
                 Login
-              </a>
+              </div>
             </div>
           </nav>
         </div>
@@ -118,22 +118,21 @@ export default function contactus() {
               <div className="pt-5 pb-6">
                 <div className="space-y-1 px-2">
                   {navigation.map((item) => (
-                    <a
+                    <div
                       key={item.name}
-                      href={item.href}
                       className="block rounded-md px-3 py-2 text-base font-medium text-warm-gray-900 hover:bg-warm-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </div>
                   ))}
                 </div>
                 <div className="mt-6 px-5">
-                  <a
-                    href="/login"
+                  <div
+                    
                     className="block w-full rounded-md border border-transparent bg-teal-500 py-2 px-4 text-center font-medium text-white shadow hover:bg-teal-600"
                   >
                     Login
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
