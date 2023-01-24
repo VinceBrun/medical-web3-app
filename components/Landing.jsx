@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
+import Link from 'next/link'
 import { Popover, Transition } from "@headlessui/react";
 import {
   ArrowPathIcon,
@@ -219,6 +220,7 @@ export default function Landing() {
             >
               <div className="flex flex-1 items-center">
                 <div className="flex w-full items-center justify-between md:w-auto">
+                <Link href="/about" legacyBehavior>
                   <a href="#">
                     <span className="sr-only">Curioosityxploring</span>
                     <img
@@ -227,6 +229,7 @@ export default function Landing() {
                       alt=""
                     />
                   </a>
+                </Link>
                   <div className="-mr-2 flex items-center md:hidden">
                     <Popover.Button className="focus-ring-inset inline-flex items-center justify-center rounded-md bg-gray-900 p-2 text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
                       <span className="sr-only">Open main menu</span>
@@ -236,29 +239,35 @@ export default function Landing() {
                 </div>
                 <div className="hidden space-x-8 md:ml-10 md:flex">
                   {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="text-base font-medium text-white hover:text-gray-300"
-                    >
-                      {item.name}
-                    </a>
+                    <Link key={item.name} href={item.href} legacyBehavior>
+                      <a
+                        key={item.name}
+                        href={item.href}
+                          className="text-base font-medium text-white hover:text-gray-300"
+                        >
+                          {item.name}
+                        </a>
+                    </Link>
                   ))}
                 </div>
               </div>
               <div className="hidden md:flex md:items-center md:space-x-6">
+              <Link href="/login" legacyBehavior>
                 <a
                   href="/login"
                   className="text-base font-medium text-white hover:text-gray-300"
                 >
                   Log in
                 </a>
+              </Link>
+               <Link href="/contactus" legacyBehavior>
                 <a
-                  href="/contactus"
-                  className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-base font-medium text-white hover:bg-gray-700"
-                >
-                  Contact Us
-                </a>
+                    href="/contactus"
+                    className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-base font-medium text-white hover:bg-gray-700"
+                  >
+                    Contact Us
+                  </a>
+               </Link>
               </div>
             </nav>
           </div>
@@ -295,6 +304,7 @@ export default function Landing() {
                 <div className="pt-5 pb-6">
                   <div className="space-y-1 px-2">
                     {navigation.map((item) => (
+                      <Link  href={item.href} legacyBehavior>
                       <a
                         key={item.name}
                         href={item.href}
@@ -302,22 +312,27 @@ export default function Landing() {
                       >
                         {item.name}
                       </a>
+                      </Link>
                     ))}
                   </div>
                   <div className="mt-6 px-5">
+                    <Link href={'#'} legacyBehavior>
                     <a
                       href="#"
                       className="block w-full rounded-md bg-gradient-to-r from-orange-500 to-red-800 py-3 px-4 text-center font-medium text-white shadow hover:from-teal-600 hover:to-cyan-700"
                     >
                       Contact Us
                     </a>
+                    </Link>
                   </div>
                   <div className="mt-6 px-5">
                     <p className="text-center text-base font-medium text-gray-500">
                       Existing customer?{" "}
+                     <Link href={'#'} legacyBehavior>
                       <a href="#" className="text-gray-900 hover:underline">
-                        Login
-                      </a>
+                          Login
+                        </a>
+                     </Link>
                     </p>
                   </div>
                 </div>
@@ -527,13 +542,16 @@ export default function Landing() {
                     <div className="flex flex-1 flex-col justify-between bg-white p-6">
                       <div className="flex-1">
                         <p className="text-sm font-medium text-cyan-600">
+                          <Link href={post.category.href} legacyBehavior>
                           <a
                             href={post.category.href}
                             className="hover:underline"
                           >
                             {post.category.name}
                           </a>
+                          </Link>
                         </p>
+                        <Link href={post.href} legacyBehavior>
                         <a href={post.href} className="mt-2 block">
                           <p className="text-xl font-semibold text-gray-900">
                             {post.title}
@@ -542,9 +560,11 @@ export default function Landing() {
                             {post.preview}
                           </p>
                         </a>
+                        </Link>
                       </div>
                       <div className="mt-6 flex items-center">
                         <div className="flex-shrink-0">
+                        <Link href={post.author.href} legacyBehavior>
                           <a href={post.author.href}>
                             <img
                               className="h-10 w-10 rounded-full"
@@ -552,15 +572,18 @@ export default function Landing() {
                               alt={post.author.name}
                             />
                           </a>
+                        </Link>
                         </div>
                         <div className="ml-3">
                           <p className="text-sm font-medium text-gray-900">
+                          <Link href={post.author.href} legacyBehavior>
                             <a
                               href={post.author.href}
                               className="hover:underline"
                             >
                               {post.author.name}
                             </a>
+                          </Link>
                           </p>
                           <div className="flex space-x-1 text-sm text-gray-500">
                             <time dateTime={post.datetime}>{post.date}</time>
